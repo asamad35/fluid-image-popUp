@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.gallery {
+  display: grid;
+  /* auto-fit means kitni baar 1 fr aaye */
+  /* minmax means "gallery" ka hr child max and min 300px lega*/
+  /* isko yaad hi krlo */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* grid gap */
+  gap: 2rem;
+}
+.img-container {
+  min-height: 100vh;
+  overflow: hidden;
+}
+.img-container img {
+  width: 100%;
+  height: 100%;
+  /* object fit view full size image */
+  object-fit: cover;
+  transition: 0.5s ease-out;
+  cursor: pointer;
+}
+.img-container img:hover {
+  transform: scale(1.2);
+}
+.modal {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease-out;
+}
+.modal.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.full-img {
+  position: absolute;
+  height: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  transition: 0.25s ease-out;
+}
+.full-img.open {
+  transform: translate(-50%, -50%) scale(1);
+}
+.modal p {
+  position: absolute;
+  font-size: 2rem;
+  color: white;
+  left: 50%;
+  bottom: 5%;
+  transform: translate(-50%, -5%);
+}
